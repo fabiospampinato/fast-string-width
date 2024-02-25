@@ -2,8 +2,6 @@
 
 A fast function for calculating the visual width of a string once printed to the terminal.
 
-//TODO: Actually fork string-width, for better credits assigment
-
 ## Install
 
 ```sh
