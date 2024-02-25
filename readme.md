@@ -1,66 +1,32 @@
-# string-width
+# Fast String Width
 
-> Get the visual width of a string - the number of columns required to display it
+A fast function for calculating the visual width of a string once printed to the terminal.
 
-Some Unicode characters are [fullwidth](https://en.wikipedia.org/wiki/Halfwidth_and_fullwidth_forms) and use double the normal width. [ANSI escape codes](https://en.wikipedia.org/wiki/ANSI_escape_code) are stripped and doesn't affect the width.
-
-Useful to be able to measure the actual width of command-line output.
+//TODO: Actually fork string-width, for better credits assigment
 
 ## Install
 
 ```sh
-npm install string-width
+npm install --save fast-string-width
 ```
 
 ## Usage
 
-```js
-import stringWidth from 'string-width';
+```ts
+import fastStringWidth from 'fast-string-width';
 
-stringWidth('a');
-//=> 1
+// Calculating the visual width of some strings
 
-stringWidth('古');
-//=> 2
+fastStringWidth ( 'hello' ); // => 5
+fastStringWidth ( '\x1b[31mhello' ); // => 5
+fastStringWidth ( '👨‍👩‍👧‍👦' ); // => 2
+fastStringWidth ( 'hello👨‍👩‍👧‍👦' ); // => 7
 
-stringWidth('\u001B[1m古\u001B[22m');
-//=> 2
+// Calculating the visual width while tweaking the width of emojis
+
+fastStringWidth ( '👶👶🏽', { emojiWidth: 1.5 } ); // => 3
 ```
 
-## API
+## License
 
-### stringWidth(string, options?)
-
-#### string
-
-Type: `string`
-
-The string to be counted.
-
-#### options
-
-Type: `object`
-
-##### ambiguousIsNarrow
-
-Type: `boolean`\
-Default: `true`
-
-Count [ambiguous width characters](https://www.unicode.org/reports/tr11/#Ambiguous) as having narrow width (count of 1) instead of wide width (count of 2).
-
-> Ambiguous characters behave like wide or narrow characters depending on the context (language tag, script identification, associated font, source of data, or explicit markup; all can provide the context). **If the context cannot be established reliably, they should be treated as narrow characters by default.**
-> - http://www.unicode.org/reports/tr11/
-
-##### countAnsiEscapeCodes
-
-Type: `boolean`\
-Default: `false`
-
-Whether [ANSI escape codes](https://en.wikipedia.org/wiki/ANSI_escape_code) should be counted.
-
-## Related
-
-- [string-width-cli](https://github.com/sindresorhus/string-width-cli) - CLI for this module
-- [string-length](https://github.com/sindresorhus/string-length) - Get the real length of a string
-- [widest-line](https://github.com/sindresorhus/widest-line) - Get the visual width of the widest line in a string
-- [get-east-asian-width](https://github.com/sindresorhus/get-east-asian-width) - Determine the East Asian Width of a Unicode character
+MIT © Fabio Spampinato
