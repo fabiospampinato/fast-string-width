@@ -34,7 +34,8 @@ const getStringWidth = ( input: string, options: Options = {} ): number => {
   let index = 0;
   let length = input.length;
   let match: RegExpMatchArray | null = null;
-  let unmatched = '';
+  let unmatchedStart = 0;
+  let unmatchedEnd = 0;
   let width = 0;
 
   /* PARSE LOOP */
@@ -43,9 +44,9 @@ const getStringWidth = ( input: string, options: Options = {} ): number => {
 
     /* UNMATCHED */
 
-    if ( unmatched || index >= length ) {
+    if ( ( unmatchedEnd > ( unmatchedStart + 1 ) ) || ( index >= length && index > ( indexPrev + 1 ) ) ) {
 
-      unmatched ||= input.slice ( indexPrev, index );
+      const unmatched = input.slice ( unmatchedStart, unmatchedEnd ) || input.slice ( indexPrev, index );
 
       for ( const char of unmatched.replaceAll ( MODIFIER_RE, '' ) ) {
 
@@ -71,7 +72,7 @@ const getStringWidth = ( input: string, options: Options = {} ): number => {
 
       }
 
-      unmatched = '';
+      unmatchedStart = unmatchedEnd = 0;
 
     }
 
@@ -87,7 +88,8 @@ const getStringWidth = ( input: string, options: Options = {} ): number => {
     if ( match ) {
 
       width += match[0].length * REGULAR_WIDTH;
-      unmatched = input.slice ( indexPrev, index );
+      unmatchedStart = indexPrev;
+      unmatchedEnd = index;
       index = indexPrev = LATIN_RE.lastIndex;
 
       continue;
@@ -102,7 +104,8 @@ const getStringWidth = ( input: string, options: Options = {} ): number => {
     if ( match ) {
 
       width += ANSI_WIDTH;
-      unmatched = input.slice ( indexPrev, index );
+      unmatchedStart = indexPrev;
+      unmatchedEnd = index;
       index = indexPrev = ANSI_RE.lastIndex;
 
       continue;
@@ -117,7 +120,8 @@ const getStringWidth = ( input: string, options: Options = {} ): number => {
     if ( match ) {
 
       width += match[0].length * CONTROL_WIDTH;
-      unmatched = input.slice ( indexPrev, index );
+      unmatchedStart = indexPrev;
+      unmatchedEnd = index;
       index = indexPrev = CONTROL_RE.lastIndex;
 
       continue;
@@ -132,7 +136,8 @@ const getStringWidth = ( input: string, options: Options = {} ): number => {
     if ( match ) {
 
       width += EMOJI_WIDTH;
-      unmatched = input.slice ( indexPrev, index );
+      unmatchedStart = indexPrev;
+      unmatchedEnd = index;
       index = indexPrev = EMOJI_RE.lastIndex;
 
       continue;
