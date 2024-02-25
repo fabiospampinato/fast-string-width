@@ -33,7 +33,6 @@ const getStringWidth = ( input: string, options: Options = {} ): number => {
   let indexPrev = 0;
   let index = 0;
   let length = input.length;
-  let match: RegExpMatchArray | null = null;
   let unmatchedStart = 0;
   let unmatchedEnd = 0;
   let width = 0;
@@ -83,11 +82,10 @@ const getStringWidth = ( input: string, options: Options = {} ): number => {
     /* LATIN */
 
     LATIN_RE.lastIndex = index;
-    match = LATIN_RE.exec ( input );
 
-    if ( match ) {
+    if ( LATIN_RE.test ( input ) ) {
 
-      width += match[0].length * REGULAR_WIDTH;
+      width += ( LATIN_RE.lastIndex - index ) * REGULAR_WIDTH;
       unmatchedStart = indexPrev;
       unmatchedEnd = index;
       index = indexPrev = LATIN_RE.lastIndex;
@@ -99,9 +97,8 @@ const getStringWidth = ( input: string, options: Options = {} ): number => {
     /* ANSI */
 
     ANSI_RE.lastIndex = index;
-    match = ANSI_RE.exec ( input );
 
-    if ( match ) {
+    if ( ANSI_RE.test ( input ) ) {
 
       width += ANSI_WIDTH;
       unmatchedStart = indexPrev;
@@ -115,11 +112,10 @@ const getStringWidth = ( input: string, options: Options = {} ): number => {
     /* CONTROL */
 
     CONTROL_RE.lastIndex = index;
-    match = CONTROL_RE.exec ( input );
 
-    if ( match ) {
+    if ( CONTROL_RE.test ( input ) ) {
 
-      width += match[0].length * CONTROL_WIDTH;
+      width += ( CONTROL_RE.lastIndex - index ) * CONTROL_WIDTH;
       unmatchedStart = indexPrev;
       unmatchedEnd = index;
       index = indexPrev = CONTROL_RE.lastIndex;
@@ -131,9 +127,8 @@ const getStringWidth = ( input: string, options: Options = {} ): number => {
     /* EMOJI */
 
     EMOJI_RE.lastIndex = index;
-    match = EMOJI_RE.exec ( input );
 
-    if ( match ) {
+    if ( EMOJI_RE.test ( input ) ) {
 
       width += EMOJI_WIDTH;
       unmatchedStart = indexPrev;
