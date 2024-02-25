@@ -29,8 +29,5 @@
     "fava": "^0.3.2",
     "tsex": "^3.0.2",
     "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "string-width": "^7.1.0"
   }
 }
