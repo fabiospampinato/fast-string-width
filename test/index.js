@@ -70,14 +70,14 @@ describe ( 'Fast String Width', it => {
     t.is ( fastStringWidth ( '…' ), 1 );
     t.is ( fastStringWidth ( '\u2770' ), 1 );
     t.is ( fastStringWidth ( '\u2771' ), 1 );
-    // t.is ( fastStringWidth ( '\u21a9' ), 2 );
+    t.is ( fastStringWidth ( '\u21a9' ), 1 );
     t.is ( fastStringWidth ( '\u2193' ), 1 );
     t.is ( fastStringWidth ( '\u21F5' ), 1 );
     t.is ( fastStringWidth ( '\u2937' ), 1 );
     t.is ( fastStringWidth ( '\u27A4' ), 1 );
     t.is ( fastStringWidth ( '\u2190' ), 1 );
     t.is ( fastStringWidth ( '\u21d0' ), 1 );
-    // t.is ( fastStringWidth ( '\u2194' ), 2 );
+    t.is ( fastStringWidth ( '\u2194' ), 1 );
     t.is ( fastStringWidth ( '\u21d4' ), 1 );
     t.is ( fastStringWidth ( '\u21ce' ), 1 );
     t.is ( fastStringWidth ( '\u27f7' ), 1 );
@@ -86,18 +86,18 @@ describe ( 'Fast String Width', it => {
     t.is ( fastStringWidth ( '\u21e8' ), 1 );
     t.is ( fastStringWidth ( '\u2191' ), 1 );
     t.is ( fastStringWidth ( '\u21C5' ), 1 );
-    // t.is ( fastStringWidth ( '\u2197' ), 2 );
+    t.is ( fastStringWidth ( '\u2197' ), 1 );
     t.is ( fastStringWidth ( '\u21cb' ), 1 );
     t.is ( fastStringWidth ( '\u21cc' ), 1 );
     t.is ( fastStringWidth ( '\u21c6' ), 1 );
     t.is ( fastStringWidth ( '\u21c4' ), 1 );
     t.is ( fastStringWidth ( '\u2217' ), 1 );
-    // t.is ( fastStringWidth ( '✔' ), 2 );
+    t.is ( fastStringWidth ( '✔' ), 1 );
     t.is ( fastStringWidth ( '\u2014' ), 1 );
     t.is ( fastStringWidth ( '\u2022' ), 1 );
     t.is ( fastStringWidth ( '\u2026' ), 1 );
     t.is ( fastStringWidth ( '\u2013' ), 1 );
-    // t.is ( fastStringWidth ( '\u2709' ), 2 );
+    t.is ( fastStringWidth ( '\u2709' ), 1 );
     t.is ( fastStringWidth ( '\u2261' ), 1 );
     t.is ( fastStringWidth ( '\u2691' ), 1 );
     t.is ( fastStringWidth ( '\u2690' ), 1 );
@@ -110,7 +110,7 @@ describe ( 'Fast String Width', it => {
     t.is ( fastStringWidth ( '\u200A' ), 1 );
     t.is ( fastStringWidth ( '\u274F' ), 1 );
     t.is ( fastStringWidth ( '\u2750' ), 1 );
-    // t.is ( fastStringWidth ( '\u26a0' ), 2 );
+    t.is ( fastStringWidth ( '\u26a0' ), 1 );
     t.is ( fastStringWidth ( '\u200b' ), 1 );
 
   });
