@@ -43,7 +43,7 @@ const getStringWidth = ( input: string, options: Options = {} ): number => {
 
     /* UNMATCHED */
 
-    if ( ( unmatchedEnd > ( unmatchedStart + 1 ) ) || ( index >= length && index > ( indexPrev + 1 ) ) ) {
+    if ( ( unmatchedEnd > unmatchedStart ) || ( index >= length && index > indexPrev ) ) {
 
       const unmatched = input.slice ( unmatchedStart, unmatchedEnd ) || input.slice ( indexPrev, index );
 
