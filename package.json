@@ -2,7 +2,7 @@
   "name": "fast-string-width",
   "repository": "github:fabiospampinato/fast-string-width",
   "description": "A fast function for calculating the visual width of a string once printed to the terminal.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "main": "dist/index.js",
   "exports": "./dist/index.js",
