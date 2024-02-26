@@ -115,4 +115,11 @@ describe ( 'Fast String Width', it => {
 
   });
 
+  it ( 'supports japanese half-width characters', t => {
+
+    t.is ( fastStringWidth ( 'ﾊﾞ' ), 2 );
+    t.is ( fastStringWidth ( 'ﾊﾟ' ), 2 );
+
+  });
+
 });
