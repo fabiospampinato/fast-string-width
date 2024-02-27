@@ -27,4 +27,4 @@ fastStringWidth ( '👶👶🏽', { emojiWidth: 1.5 } ); // => 3
 
 ## License
 
-MIT © Sindre Sorhus
+MIT © Fabio Spampinato

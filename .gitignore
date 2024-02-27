@@ -10,7 +10,6 @@
 .Trashes
 Thumbs.db
 
-babel
 dist
 node_modules
 package-lock.json
