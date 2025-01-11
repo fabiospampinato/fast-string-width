@@ -1,12 +1,16 @@
 
 /* IMPORT */
 
-import type {WidthOptions as Options} from 'fast-string-truncated-width';
+import type {TruncationOptions, WidthOptions as Options} from 'fast-string-truncated-width';
 import fastStringTruncatedWidth from 'fast-string-truncated-width';
 
 /* HELPERS */
 
-const NO_TRUNCATION = { limit: Infinity, ellipsis: '' };
+const NO_TRUNCATION: TruncationOptions = {
+  limit: Infinity,
+  ellipsis: '',
+  ellipsisWidth: 0,
+};
 
 /* MAIN */
 
