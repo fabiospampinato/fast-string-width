@@ -21,7 +21,6 @@ const options = {
   ansiWidth: 0,
   controlWidth: 0,
   tabWidth: 8,
-  ambiguousWidth: 1,
   emojiWidth: 2,
   fullWidthWidth: 2,
   regularWidth: 1,
