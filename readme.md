@@ -18,11 +18,9 @@ import fastStringWidth from 'fast-string-width';
 // The width of various classes of characters is configurable
 
 const options = {
-  ansiWidth: 0,
   controlWidth: 0,
   tabWidth: 8,
   emojiWidth: 2,
-  fullWidthWidth: 2,
   regularWidth: 1,
   wideWidth: 2
 };
