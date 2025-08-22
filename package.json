@@ -24,7 +24,7 @@
     "terminal"
   ],
   "dependencies": {
-    "fast-string-truncated-width": "^3.0.0"
+    "fast-string-truncated-width": "^3.0.1"
   },
   "devDependencies": {
     "fava": "^0.3.4",
